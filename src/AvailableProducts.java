@@ -1,35 +1,31 @@
-import java.util.*;
+import java.util.HashMap;
 
 public class AvailableProducts {
     //set of all products
-    private Set<Product> set;
+    private HashMap<Integer,Product> map;
     public AvailableProducts(){
-        set = new HashSet<>();
+        map = new HashMap<>();
     }
     public void addProduct(Product product){
-        if (!alreadyExists(product)) set.add(product);
+        if (!isAvailable(product.getProductID())) map.put(product.getProductID(), product);
         else System.out.println("Product already available");
     }
-    public void removeProduct(Product product){
-        set.remove(product);
+    public void removeProduct(int productID){
+        map.remove(productID);
     }
-    private boolean alreadyExists(Product product){
-        Iterator<Product> value = set.iterator();
-        while (value.hasNext()) {
-            if(value.next().getProductID() == product.getProductID()) return true;
-        }
-        return false;
+    public boolean isAvailable(int productID){
+        return map.containsKey(productID);
     }
-    public boolean isAvailable(Product product){
-        return (set.contains(product));
+    public Product getProduct(int productID){
+        return map.get(productID);
     }
     public void print(){
-        Iterator<Product> value = set.iterator();
         System.out.print("Available products are: [");
-        while (value.hasNext()) {
-            System.out.print(value.next().getName()+", ");
+        for (Product product : map.values()){
+            System.out.print(product.getName() +"["+product.getProductID()+"][$"+product.getPrice()+ "]  ||   ");
         }
         System.out.println("]");
+
 
     }
 }
