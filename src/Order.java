@@ -18,6 +18,18 @@ public class Order {
         if (totalPrice<0) this.totalPrice = Math.abs(totalPrice);
         else this.totalPrice = totalPrice;
     }
+
+    public ArrayList<String> getOrderInfo(){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("customerID: "+String.valueOf(this.customerID));
+        list.add("orderID: " +String.valueOf(this.orderID));
+        list.add("Cart:");
+        for (Product product:this.list){
+            list.add("Name: " + product.getName() + " | ID: " +product.getProductID() + " | Price: " +product.getPrice());
+        }
+        list.add("Total: $" + totalPrice);
+        return list;
+    }
     public void printOrderInfo(){
         System.out.println("customerID: "+this.customerID);
         System.out.println("orderID: " +this.orderID);

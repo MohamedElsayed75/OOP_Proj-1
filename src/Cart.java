@@ -39,6 +39,13 @@ public class Cart {
         }
         System.out.println("]");
     }
+    public String getProductNames(){
+        String name = "";
+        for (Product product : cart){
+            name = (name + ", " + product.getName()+"\n");
+        }
+        return name;
+    }
 
     public Order placeOrder(int orderID){
         Order order = new Order(this.customerID , orderID , cart , calculatePrice());

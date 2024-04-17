@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class EcommerceSystem {
+public class EcommerceSystemCli {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
 
@@ -11,13 +11,14 @@ public class EcommerceSystem {
         ClothingProduct shirt = new ClothingProduct(2 , "T-shirt" , 19.99F , "Medium" , "Cotton");
         BookProduct book = new BookProduct(3,"OOP" , 39.99F , "O’Reilly" , "X Publications");
 
-        Customer customer1 = new Customer(1234 , "MyName" , "Address");
+        Customer customer1 = new Customer(23010154 , "Mohamed Elsayed" , "Address");
 
         availableProducts.addProduct(phone);
         availableProducts.addProduct(shirt);
         availableProducts.addProduct(book);
 
         Cart cart = new Cart(customer1.getCustomerID() , availableProducts);
+
 
         while (true){
             System.out.println("Enter the ID of the product to add to cart ~ enter 0 to exit ~");

@@ -19,13 +19,34 @@ public class AvailableProducts {
     public Product getProduct(int productID){
         return map.get(productID);
     }
-    public void print(){
+    public void print() {
         System.out.print("Available products are: [");
-        for (Product product : map.values()){
-            System.out.print(product.getName() +"["+product.getProductID()+"][$"+product.getPrice()+ "]  ||   ");
+        for (Product product : map.values()) {
+            System.out.print(product.getName() + "[" + product.getProductID() + "][$" + product.getPrice() + "]  ||   ");
         }
         System.out.println("]");
+    }
 
-
+    public String[] getProductsInfo(){
+        String[] arr = new String[map.size()];
+        int i = 0;
+        for (Product product : map.values()){
+            arr[i++] = ("Name: "+product.getName()+"  ||  Price: $"+product.getPrice()+"  ||  ID: "+product.getProductID());
+        }
+        return arr;
+    }
+    public String[] getProductsNames(){
+        String[] arr = new String[map.size()];
+        int i = 0;
+        for (Product product : map.values()){
+            arr[i++] = product.getName();
+        }
+        return arr;
+    }
+    public Integer[] getIDs(){
+        return map.keySet().toArray(new Integer[0]);
+    }
+    public int length(){
+        return map.size();
     }
 }
