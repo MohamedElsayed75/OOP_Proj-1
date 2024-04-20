@@ -53,6 +53,12 @@ public class Cart {
         System.out.println("Order placed!");
         return order;
     }
+    public int length(){
+        return cart.size();
+    }
+    public Product getProduct(int index){
+        return cart.get(index);
+    }
 
     public AvailableProducts getAvailableProducts() {
         return availableProducts;

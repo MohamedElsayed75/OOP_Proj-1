@@ -23,6 +23,7 @@ public class EcommerceSystemGui {
         JFrame frame = new JFrame("Ecommerce System");
         frame.setSize(1300,550);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
@@ -44,6 +45,7 @@ public class EcommerceSystemGui {
 
         JLabel welcome = new JLabel("Welcome!, Cart:");
         welcome.setFont(new Font("Arial", Font.PLAIN, 20));
+        welcome.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel cartContPanel = new JPanel();
         cartContPanel.setLayout(new BoxLayout(cartContPanel, BoxLayout.Y_AXIS));
@@ -86,8 +88,10 @@ public class EcommerceSystemGui {
         cartPanel.add(cartContPanel);
         cartPanel.add(Box.createVerticalStrut(40));
 
+
         cartPanel.add(textInLabel);
         cartPanel.add(textField);
+        cartPanel.add(Box.createVerticalStrut(20));
 
         order.addActionListener(orderListener);
 
