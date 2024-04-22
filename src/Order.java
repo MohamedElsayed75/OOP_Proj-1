@@ -21,7 +21,6 @@ public class Order {
 
     public ArrayList<String> getOrderInfo(){
         ArrayList<String> list = new ArrayList<>();
-        list.add("customerID: "+String.valueOf(this.customerID));
         list.add("orderID: " +String.valueOf(this.orderID));
         list.add("Cart:");
         for (Product product:this.list){
