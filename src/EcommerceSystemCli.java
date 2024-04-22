@@ -11,14 +11,21 @@ public class EcommerceSystemCli {
         ClothingProduct shirt = new ClothingProduct(2 , "T-shirt" , 19.99F , "Medium" , "Cotton");
         BookProduct book = new BookProduct(3,"OOP" , 39.99F , "O’Reilly" , "X Publications");
 
-        Customer customer1 = new Customer(23010154 , "Mohamed Elsayed" , "Address");
-
         availableProducts.addProduct(phone);
         availableProducts.addProduct(shirt);
         availableProducts.addProduct(book);
 
-        Cart cart = new Cart(customer1.getCustomerID() , availableProducts);
 
+        System.out.println("Welcome to E-Commerce System!");
+        System.out.println("Please enter your name");
+        String name = scanner.nextLine();
+        System.out.println("Please enter your address");
+        String address = scanner.nextLine();
+        System.out.println("Please enter your id");
+        int id = scanner.nextInt();
+
+        Customer customer1 = new Customer(id , name , address);
+        Cart cart = new Cart(customer1.getCustomerID() , availableProducts);
 
         while (true){
             System.out.println("Enter the ID of the product to add to cart ~ enter 0 to exit ~");

@@ -187,7 +187,8 @@ public class Gui {
         receiptFrame.setSize(WIDTH/2,HEIGHT);
         receiptFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         receiptFrame.setLocationRelativeTo(null);
-        receiptFrame.setResizable(false);
+        receiptFrame.revalidate();
+        receiptFrame.repaint();
 
         JPanel receiptPanel = new JPanel();
         receiptPanel.setLayout(new BoxLayout(receiptPanel, BoxLayout.Y_AXIS));
@@ -229,11 +230,11 @@ public class Gui {
                 JLabel labelTemp6 = new JLabel("Address: "+customerAddress);
                 receiptPanel.add(labelTemp6);
 
-                ArrayList<String> list = new ArrayList<>();
-                list = order.getOrderInfo();
-                for (int i = 0 ; i< list.size() ; i++){
+                ArrayList<String> list = order.getOrderInfo();
+
+                for (String s : list) {
                     JLabel label = new JLabel();
-                    label.setText(list.get(i));
+                    label.setText(s);
                     receiptPanel.add(label);
 
                     receiptPanel.revalidate();
